@@ -24,6 +24,7 @@ CREATE TABLE employee (
 CREATE TABLE salary (
 	employee int NOT NULL,
 	salary numeric(10,2) NOT NULL,
+	PRIMARY KEY(employee, salary),
 	FOREIGN KEY (employee) REFERENCES employee(id)
 );
 
@@ -35,6 +36,7 @@ CREATE TABLE department (
 CREATE TABLE department_employee (
 	department varchar(4) NOT NULL,
 	employee int NOT NULL,
+	PRIMARY KEY(department, employee),
 	FOREIGN KEY (department) REFERENCES department(id),
 	FOREIGN KEY (employee) REFERENCES employee(id)
 );
@@ -42,6 +44,7 @@ CREATE TABLE department_employee (
 CREATE TABLE department_manager (
 	department varchar(4) NOT NULL,
 	employee int NOT NULL,
+	PRIMARY KEY(department, employee),
 	FOREIGN KEY (department) REFERENCES department(id),
 	FOREIGN KEY (employee) REFERENCES employee(id)
 );
